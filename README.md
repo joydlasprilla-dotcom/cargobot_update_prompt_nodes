@@ -1,4 +1,4 @@
-# Guía de uso: css-prompt-sync
+# Guía de uso
 
 Herramienta para editar el nodo prompt de un wf **como un archivo** y llevarlo a HappyRobot de forma controlada (editar → commit → PR → merge → deploy).
 
