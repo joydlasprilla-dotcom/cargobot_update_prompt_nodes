@@ -38,7 +38,7 @@ Las "coordenadas" están al inicio de los scripts:
 Para otro workflow, cambia **`WORKFLOW` en los dos archivos** y `PROMPT_PERSISTENT_ID`. El `persistent_id` lo encuentras en el JSON que descargas de la plataforma, en el nodo con `"type": "prompt"`. O en plataforma con :
 <img width="432" height="249" alt="image" src="https://github.com/user-attachments/assets/359af0ec-cadd-4895-8cb5-8eb9abdada61" />
 
-**SLUG del wf**
+**SLUG del wf** ejemplo
 <img width="997" height="54" alt="image" src="https://github.com/user-attachments/assets/16e49c5d-ab2b-4530-a71d-cc85d415e802" />
 
 
