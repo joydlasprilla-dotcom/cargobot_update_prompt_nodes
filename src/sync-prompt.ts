@@ -7,8 +7,8 @@ const client = new HappyRobotClient({
   cluster: "us",
 });
 
-const WORKFLOW = "ma3nwtzz0k5y";
-const PROMPT_PERSISTENT_ID = "019d4fe0-b2ef-7ee7-bc6b-076e8aa618e9";
+const WORKFLOW = "ma3nwtzz0k5y"; //seleccionar wf a utilizar
+const PROMPT_PERSISTENT_ID = "019d4fe0-b2ef-7ee7-bc6b-076e8aa618e9"; // imagen de referencia en readme
 const PROMPT_FILE = "prompts/chatbot-agent.prompt.md";
 
 // Mismo formato que guarda la UI: un solo párrafo con todo el markdown como texto.
