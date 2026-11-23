@@ -22,7 +22,7 @@ Crea el archivo `.env` en esta carpeta:
 HAPPYROBOT_API_KEY=tu_api_key
 ```
 
-(`FORK_BRANCH_ID` se agrega después, en el paso 3.) El archivo `.env` **nunca** se sube a Git ni se comparte.
+(`FORK_BRANCH_ID` se agrega después, en el paso 3.) 
 
 ## 3. Configuración del workflow
 
