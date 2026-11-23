@@ -10,10 +10,9 @@ Herramienta para editar el nodo prompt de un wf **como un archivo** y llevarlo a
 - Una API key de HappyRobot con permisos sobre el workflow
 - Acceso al workflow en la plataforma (para ver resultados y aprobar PRs)
 
-## 2. Instalación (una sola vez)
+## 2. Instalación
 
 ```bash
-cd cargobot_sdk/css-prompt-sync
 npm install
 ```
 
