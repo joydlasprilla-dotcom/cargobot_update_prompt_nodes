@@ -2,10 +2,6 @@
 
 Herramienta para editar el nodo prompt de un wf **como un archivo** y llevarlo a HappyRobot de forma controlada (editar → commit → PR → merge → deploy).
 
-> Para entender el "por qué" de cada concepto (branches, commits, ambientes), lee `GUIA_SDK_PROMPT_SYNC.md`. Esta guía es solo el "cómo".
->
-> Estado de pruebas: `dump` y `apply` están probados. `inspect`, `pr`, `merge` y `deploy` pasan el typecheck pero **hay que probarlos por primera vez en tu entorno** (sigue el orden de la sección 5).
-
 ---
 
 ## 1. Requisitos
