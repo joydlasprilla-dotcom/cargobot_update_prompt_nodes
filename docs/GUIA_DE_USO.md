@@ -70,17 +70,13 @@ npm run dump
 
 ### Paso 2. Editar
 
-Abre `prompts/chatbot-agent.prompt.md` y cámbialo. Antes de seguir, revisa que no haya contradicciones (por ejemplo, el nombre del agente distinto en la introducción y en las instrucciones).
+Abre `prompts/chatbot-agent.prompt.md` y cámbialo.
 
 ### Paso 3. Subir y guardar
 
 ```bash
 npm run apply
 ```
-
-Éxito = ves `prompt y prompt_md verificados`. Si el script termina con `Verificación falló`, **no confíes en la UI**; reintenta.
-
-Qué comprobar: en la plataforma, abre el workflow y **selecciona la branch del fork** (no `development-branch`). El prompt nuevo se ve ahí. Nada se ha desplegado.
 
 ### Paso 4. Ver el panorama (opcional pero recomendado)
 
@@ -89,24 +85,21 @@ npm run inspect
 ```
 
 Muestra:
-- **Branches**: id, último commit, si está protegida, si exige PR y a qué ambientes está ligada
+- **Branches**: id y último commit
 - **Deployment targets**: qué branch alimenta cada ambiente y su último deploy
 - **Pull requests**: abiertos, mergeados y cerrados
 
 ### Paso 5. Proponer el cambio (PR)
 
 ```bash
-npm run pr -- --target development-branch --title "Actualiza saludo del agente"
+npm run pr -- --target development-branch --title "mensaje"
 ```
 
 - Origen: tu fork (`FORK_BRANCH_ID`). Destino: la branch indicada.
 - El script imprime el número del PR, si ya se puede mergear y qué lo bloquea.
 
-### Paso 6. Aprobación (si aplica)
 
-Si hay bloqueos de aprobación, **otra persona con permisos aprueba el PR desde la plataforma**. El SDK no tiene método para aprobar; esto es intencional como control.
-
-### Paso 7. Merge
+### Paso 6. Merge
 
 ```bash
 npm run merge -- 5      # 5 = número del PR
@@ -114,7 +107,7 @@ npm run merge -- 5      # 5 = número del PR
 
 Sin número, lista los PRs abiertos. Pide escribir `merge`. Esto **integra** el cambio en la branch destino pero **no despliega**.
 
-### Paso 8. Deploy
+### Paso 7. Deploy
 
 Primero simula:
 
@@ -128,58 +121,17 @@ Muestra qué branch y qué commit se publicarían, el último deploy y si tienes
 npm run deploy -- --env staging --confirm
 ```
 
-Te pide escribir el nombre del ambiente. Repite el proceso con `production` solo cuando staging esté validado.
-
 ---
 
-## 6. Qué comando usar según el objetivo
-
-| Objetivo | Hasta dónde llegar |
-|---|---|
-| Probar un cambio sin riesgo | Pasos 1 a 3 |
-| Compartirlo con el equipo | Pasos 1 a 7 (merge a `development-branch`) |
-| Que lo vean usuarios reales | Pasos 1 a 8 (merge a la branch del ambiente + deploy) |
-| Empezar de cero | Borra la línea `FORK_BRANCH_ID` del `.env` y corre `npm run dump` |
-
----
-
-## 7. Reglas de seguridad
-
-1. **Producción siempre con doble llave:** PR aprobado por otra persona y deploy consciente (`--confirm` + escribir el ambiente).
-2. **Dry-run primero.** `deploy` sin `--confirm` nunca despliega.
-3. **Nunca pegues la API key** en chats, tickets o capturas. Si se filtra, rótala en la plataforma.
-4. **Forks cortos:** haz dump, edita, apply y PR el mismo día para evitar quedar desactualizado.
-5. **El SDK no tiene `rebase` ni `revert`.** Si tu fork quedó atrasado, haz un fork nuevo (sección 6) o usa el rebase de la plataforma.
-
----
-
-## 8. Errores frecuentes
-
-| Mensaje | Qué significa | Solución |
-|---|---|---|
-| `Falta FORK_BRANCH_ID en .env` | No hay branch de trabajo | `npm run dump` y pega el ID en `.env` |
-| `No está development-branch` | La branch base se llama distinto | Revisa nombres con `npm run inspect` y ajusta el script |
-| `No está el nodo Prompt en esta branch` | `PROMPT_PERSISTENT_ID` incorrecto | Copia el `persistent_id` del JSON de la plataforma |
-| `Verificación falló` | La plataforma no guardó algún campo | Reintenta `apply`; si persiste, reporta el mensaje completo |
-| Error por contadores o conflicto | Alguien editó el nodo mientras trabajabas | `npm run dump`, reaplica tu edición y `apply` |
-| `No existe la branch "..."` | El destino del PR no existe | El mensaje lista las disponibles |
-| `No se puede mergear aún. Bloqueos: ...` | Falta aprobación u otro requisito | Resuélvelo en la plataforma y repite `merge` |
-| `No puedes desplegar ahora (motivo: ...)` | Permiso, ventana horaria o lista permitida | Revisa el motivo que imprime el comando |
-| `apply` funcionó pero no veo cambios | Estás viendo otra branch | Selecciona el fork en la UI |
-| 401 / 403 | API key inválida o sin permisos | Revisa `HAPPYROBOT_API_KEY` y tu rol |
-
----
-
-## 9. Mapa de archivos
+## 8. Mapa de archivos
 
 ```
 css-prompt-sync/
-├── .env                          # secretos (no compartir)
+├── .env                          # secretos 
 ├── package.json                  # comandos npm
 ├── prompts/chatbot-agent.prompt.md   # el prompt que editas
 ├── src/sync-prompt.ts            # dump y apply
 ├── src/release.ts                # inspect, pr, merge, deploy
 └── docs/
     ├── GUIA_DE_USO.md            # esta guía (el "cómo")
-    └── GUIA_SDK_PROMPT_SYNC.md   # conceptos (el "por qué")
 ```
