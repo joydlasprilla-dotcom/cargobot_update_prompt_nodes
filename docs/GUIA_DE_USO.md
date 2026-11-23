@@ -1,6 +1,6 @@
 # Guía de uso: css-prompt-sync
 
-Herramienta para editar el prompt del Chatbot Agent **como un archivo** y llevarlo a HappyRobot de forma controlada (editar → commit → PR → merge → deploy).
+Herramienta para editar el nodo prompt de un wf **como un archivo** y llevarlo a HappyRobot de forma controlada (editar → commit → PR → merge → deploy).
 
 > Para entender el "por qué" de cada concepto (branches, commits, ambientes), lee `GUIA_SDK_PROMPT_SYNC.md`. Esta guía es solo el "cómo".
 >
