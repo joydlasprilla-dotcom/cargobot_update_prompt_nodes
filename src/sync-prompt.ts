@@ -76,8 +76,7 @@ async function main() {
 
   const promptMd = readFileSync(PROMPT_FILE, "utf8").replace(/\r\n/g, "\n");
 
-  // La UI renderiza `prompt` (rich text), NO `prompt_md`. Hay que enviar ambos
-  // o la UI sigue mostrando el prompt viejo aunque prompt_md cambie.
+
   await client.branches.applyOperation(branchId, {
     op: {
       type: "promptUpdated",
