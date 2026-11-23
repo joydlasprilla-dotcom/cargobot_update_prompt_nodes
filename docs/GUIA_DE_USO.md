@@ -123,7 +123,7 @@ npm run deploy -- --env staging --confirm
 
 ---
 
-## 8. Mapa de archivos
+## 6. Mapa de archivos
 
 ```
 css-prompt-sync/
