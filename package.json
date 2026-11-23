@@ -1,0 +1,29 @@
+{
+  "name": "css-prompt-sync",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dump": "tsx src/sync-prompt.ts dump",
+    "apply": "tsx src/sync-prompt.ts apply",
+    "whoami": "tsx src/release.ts whoami",
+    "inspect": "tsx src/release.ts inspect",
+    "pr": "tsx src/release.ts pr",
+    "merge": "tsx src/release.ts merge",
+    "deploy": "tsx src/release.ts deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@happyrobot-ai/sdk": "^0.2.9",
+    "dotenv": "^18.0.10"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
