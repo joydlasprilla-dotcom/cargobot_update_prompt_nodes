@@ -35,7 +35,9 @@ Las "coordenadas" están al inicio de los scripts:
 | `PROMPT_FILE` | `src/sync-prompt.ts` | Archivo local del prompt |
 | `DEFAULT_TARGET_BRANCH` | `src/release.ts` | Branch destino por defecto del PR |
 
-Para otro cliente o workflow, cambia **`WORKFLOW` en los dos archivos** y `PROMPT_PERSISTENT_ID`. El `persistent_id` lo encuentras en el JSON que descargas de la plataforma, en el nodo con `"type": "prompt"`.
+Para otro workflow, cambia **`WORKFLOW` en los dos archivos** y `PROMPT_PERSISTENT_ID`. El `persistent_id` lo encuentras en el JSON que descargas de la plataforma, en el nodo con `"type": "prompt"`. O en plataforma con :
+<img width="432" height="249" alt="image" src="https://github.com/user-attachments/assets/359af0ec-cadd-4895-8cb5-8eb9abdada61" />
+
 
 ---
 
