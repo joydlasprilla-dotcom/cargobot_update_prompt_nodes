@@ -66,7 +66,7 @@ npm run dump
 ```
 
 - **Primera vez:** crea la branch `prompt-refactor-AAAA-MM-DD` y muestra una línea `FORK_BRANCH_ID=...`. **Cópiala al `.env`.**
-- Escribe el contenido en `prompts/chatbot-agent.prompt.md`.
+- Escribe el cambio de contenido en `prompts/chatbot-agent.prompt.md`.
 - Si ves `⚠️ prompt (lo que ve la UI) y prompt_md difieren`, el próximo `apply` los alineará.
 
 ### Paso 2. Editar
